@@ -20,11 +20,11 @@ head(activityData)
 
 ## What is mean total number of steps taken per day?
 
-stepsPerDay <- aggregate(steps ~ date, acitivityData, sum, na.rm=TRUE)
+stepsPerDay <- aggregate(steps ~ date, activityData, sum, na.rm=TRUE)
 
-hist(stepsPerDay)
+hist(stepsPerDay$steps)
 
-meanStepsPerDay <- mean(StepsPerDay$steps)
+meanStepsPerDay <- mean(stepsPerDay$steps)
 
 meanStepsPerDay
 
@@ -35,7 +35,7 @@ medianStepsPerDay
 
 ## What is the average daily activity pattern?
 
-stepsPerInterva <- aggregate(steps~interval, data=activityData, mean, na.rm=TRUE)
+stepsPerInterval <- aggregate(steps~interval, data=activityData, mean, na.rm=TRUE)
 
 plot(steps~interval, data=stepsPerInterval, type="l")
 
@@ -45,9 +45,9 @@ intervalWithMaxNbSteps
 
 ## Imputing missing values
 
-totalValueMissings <- sum(is.na(activityData$steps))
+totalValuesMissings <- sum(is.na(activityData$steps))
 
-totlaValueMissings
+totalValuesMissings
 
 getMeanStepsPerInterval <- function(interval)
 
